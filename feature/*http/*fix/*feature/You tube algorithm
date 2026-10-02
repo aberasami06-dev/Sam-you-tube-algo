@@ -1,0 +1,47 @@
+# Sam-you-tube-algo
+Tips, trick, tutorial about algo
+git checkout main
+git pull origin main
+git checkout -b feature/youtube-guides-page
+git add .
+git commit -m "feat: add template for YouTube channel optimization guides"
+git push origin feature/youtube-guides-page
+name: Build and Deploy Website
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Linter & Tests
+        run: |
+          npm run lint --if-present
+          npm run test --if-present
+
+      - name: Build Project
+        run: npm run build
+
+      # Example: Deploying to GitHub Pages (or swap with Vercel/Netlify Actions)
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build # or ./out / ./dist
