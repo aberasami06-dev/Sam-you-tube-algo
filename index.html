@@ -1,6 +1,998 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Algo - Audit Tool & Creator Resources</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red: #FF0000;
+            --dark-red: #CC0000;
+            --bg-dark: #0F0F0F;
+            --card-bg: #1F1F1F;
+            --inner-bg: #121212;
+            --text-main: #F1F1F1;
+            --text-muted: #AAA;
+            --border-color: #333;
+            --accent-blue: #3EA6FF;
+            --success-green: #2BA640;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* --- Header & Top Navigation Bar --- */
+        header {
+            background-color: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Hamburger Menu Button (Android Top-Left Style) */
+        .hamburger-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .hamburger-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .btn-auth-signin {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-auth-signin:hover {
+            border-color: #777;
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .btn-auth-signup {
+            background-color: var(--primary-red);
+            border: none;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-auth-signup:hover {
+            background-color: var(--dark-red);
+        }
+
+        /* --- Android Style Slide-Out Navigation Drawer --- */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .drawer-overlay.open {
+            display: block;
+            opacity: 1;
+        }
+
+        .nav-drawer {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: #161616;
+            border-right: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+        }
+
+        .nav-drawer.open {
+            left: 0;
+        }
+
+        .drawer-header {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .drawer-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .drawer-close:hover {
+            color: #fff;
+        }
+
+        .drawer-links {
+            list-style: none;
+            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            flex: 1;
+        }
+
+        .drawer-links li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+        }
+
+        .drawer-links li a:hover,
+        .drawer-links li a.active {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--accent-blue);
+        }
+
+        .drawer-footer-auth {
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* --- Main Content Area --- */
+        main {
+            flex: 1;
+            max-width: 800px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-section {
+            display: none;
+            background-color: var(--card-bg);
+            padding: 2.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 1.7rem;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        h2, h3 {
+            color: #fff;
+            margin: 1.5rem 0 0.75rem 0;
+            font-weight: 600;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a.text-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        a.text-link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Tool Component (URL or Problem Input Mode) --- */
+        .tool-box-container {
+            background-color: var(--inner-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-top: 1.25rem;
+        }
+
+        .mode-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: color 0.2s;
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .input-group-mode {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-group-mode.active {
+            display: flex;
+        }
+
+        input[type="url"],
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            align-self: flex-start;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-red);
+        }
+
+        .results-box {
+            display: none;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .meta-info {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .problem-item {
+            background-color: #261a1a;
+            border-left: 4px solid var(--primary-red);
+            padding: 0.6rem 0.9rem;
+            margin-bottom: 0.6rem;
+            border-radius: 4px;
+            color: #ffcccc;
+            font-size: 0.9rem;
+        }
+
+        .solution-item {
+            background-color: #1a261a;
+            border-left: 4px solid var(--success-green);
+            padding: 0.6rem 0.9rem;
+            margin-bottom: 0.6rem;
+            border-radius: 4px;
+            color: #ccffcc;
+            font-size: 0.9rem;
+        }
+
+        .action-bar {
+            display: flex;
+            gap: 10px;
+            margin-top: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2a2a2a;
+            border-color: #555;
+        }
+
+        /* --- Modals for Sign In / Sign Up --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1005;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: modalPop 0.25s ease-out;
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* --- Toast Notification --- */
+        #toast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: var(--accent-blue);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 600;
+            z-index: 2000;
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: fadeInOut 2.5s;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; bottom: 20px; }
+            15% { opacity: 1; bottom: 30px; }
+            85% { opacity: 1; bottom: 30px; }
+            100% { opacity: 0; bottom: 20px; }
+        }
+
+        /* --- Contact Form --- */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .contact-info-box {
+            background-color: var(--inner-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-top: 1.5rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #050505;
+            border-top: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .auth-buttons {
+                display: none; /* Handled inside the slide drawer for mobile */
+            }
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .page-section {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <div class="nav-left">
+                <!-- Hamburger Button (Android Top-Left Style) -->
+                <button class="hamburger-btn" onclick="toggleDrawer()" aria-label="Open Menu">
+                    ☰
+                </button>
+                <a class="logo" onclick="showPage('tool')">
+                    ▶ YouTube <span>Algo</span>
+                </a>
+            </div>
+
+            <div class="auth-buttons">
+                <button class="btn-auth-signin" onclick="openModal('signinModal')">Sign In</button>
+                <button class="btn-auth-signup" onclick="openModal('signupModal')">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slide-Out Navigation Drawer (Android Style) -->
+    <div id="drawerOverlay" class="drawer-overlay" onclick="toggleDrawer()"></div>
+    <nav id="navDrawer" class="nav-drawer">
+        <div class="drawer-header">
+            <a class="logo" onclick="toggleDrawer(); showPage('tool')">
+                ▶ YouTube <span>Algo</span>
+            </a>
+            <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+        </div>
+        <ul class="drawer-links">
+            <li><a onclick="toggleDrawer(); showPage('tool')" id="drawer-tool" class="active">🛠️ Algorithm Audit Tool</a></li>
+            <li><a onclick="toggleDrawer(); showPage('about')" id="drawer-about">ℹ️ About Us</a></li>
+            <li><a onclick="toggleDrawer(); showPage('contact')" id="drawer-contact">✉️ Contact Us</a></li>
+            <li><a onclick="toggleDrawer(); showPage('terms')" id="drawer-terms">⚖️ Terms of Service</a></li>
+        </ul>
+        <div class="drawer-footer-auth">
+            <button class="btn-auth-signin" style="width:100%; text-align:center;" onclick="toggleDrawer(); openModal('signinModal')">Sign In</button>
+            <button class="btn-auth-signup" style="width:100%; text-align:center;" onclick="toggleDrawer(); openModal('signupModal')">Create Account</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main>
+        
+        <!-- Page 1: YouTube Problem Solver & Audit Tool -->
+        <section id="tool" class="page-section active">
+            <h1>YouTube Algorithm Solver</h1>
+            
+            <div class="tool-box-container">
+                <div class="mode-tabs">
+                    <button class="tab-btn active" onclick="switchMode('url')" id="tabUrl">🔗 By YouTube URL</button>
+                    <button class="tab-btn" onclick="switchMode('problem')" id="tabProblem">✍️ By Writing Problem</button>
+                </div>
+
+                <!-- Mode 1: URL Input -->
+                <div id="modeUrl" class="input-group-mode active">
+                    <p>Paste any YouTube video or channel link to detect algorithmic problems and generate actionable solutions.</p>
+                    <input type="url" id="ytUrl" placeholder="https://www.youtube.com/watch?v=..." required>
+                    <button class="btn-primary" onclick="processAudit('url')">Analyze URL</button>
+                </div>
+
+                <!-- Mode 2: Problem Description Input -->
+                <div id="modeProblem" class="input-group-mode">
+                    <p>Describe your channel or video issue below to receive tailored algorithmic solutions.</p>
+                    <textarea id="ytProblemText" rows="3" placeholder="e.g., My latest video got 20 views and CTR is stuck at 1.2%..." required></textarea>
+                    <button class="btn-primary" onclick="processAudit('problem')">Solve Problem</button>
+                </div>
+            </div>
+
+            <!-- Audit Results Display -->
+            <div id="resultsBox" class="results-box">
+                <div class="meta-info">
+                    <p><strong>Input Source:</strong> <span id="resSource">--</span></p>
+                </div>
+
+                <h3 style="color: #ff6b6b; font-size: 1rem; margin-bottom: 0.5rem;">Detected Algorithmic Bottlenecks</h3>
+                <div id="problemsContainer"></div>
+
+                <h3 style="color: #6bff6b; font-size: 1rem; margin-top: 1rem; margin-bottom: 0.5rem;">Actionable Solutions & Fixes</h3>
+                <div id="solutionsContainer"></div>
+
+                <!-- Action Buttons: Copy and Download -->
+                <div class="action-bar">
+                    <button class="btn-secondary" onclick="copyReport()">
+                        📋 Copy Solution
+                    </button>
+                    <button class="btn-secondary" onclick="downloadReport()">
+                        💾 Download Report (.txt)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 2: About Us -->
+        <section id="about" class="page-section">
+            <h1>About Us</h1>
+            <p>Welcome to <strong>YouTube Algo</strong> — your ultimate destination for mastering the YouTube algorithm, growing your audience, and building a sustainable content creation journey.</p>
+            
+            <h3>Our Mission</h3>
+            <p>At YouTube Algo, our mission is to demystify how YouTube recommends, ranks, and distributes content. We empower creators with data-driven insights, algorithm updates, actionable strategies, and practical tools.</p>
+            
+            <h3>What We Offer</h3>
+            <ul>
+                <li><strong>Algorithm Insights:</strong> Clear breakdowns of YouTube algorithm updates and ranking signals.</li>
+                <li><strong>Growth Strategies:</strong> Tactics for improving Click-Through Rate (CTR) and audience retention.</li>
+                <li><strong>Tools & Resources:</strong> Built-in optimization tools to streamline your channel growth workflow.</li>
+            </ul>
+        </section>
+
+        <!-- Page 3: Contact Us -->
+        <section id="contact" class="page-section">
+            <h1>Contact Us</h1>
+            <p>Have a question or feedback? We’d love to hear from you!</p>
+            
+            <form class="contact-form" onsubmit="event.preventDefault(); showToast('Thank you! Your message has been sent.');">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" placeholder="General Inquiry" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Type your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+
+            <div class="contact-info-box">
+                <p><strong>Support Email:</strong> <a href="mailto:support@youtubealgo.com" class="text-link">support@youtubealgo.com</a></p>
+            </div>
+        </section>
+
+        <!-- Page 4: Terms of Service & Disclaimer -->
+        <section id="terms" class="page-section">
+            <h1>Terms of Service & Disclaimer</h1>
+            <p><em>Last Updated: October 2026</em></p>
+            
+            <h3>1. Independent Status & YouTube™ Disclaimer</h3>
+            <p><strong>YouTube Algo is an independent educational website and service.</strong></p>
+            <ul>
+                <li>YouTube Algo is <strong>not affiliated, associated, authorized, endorsed by, or in any way officially connected with YouTube, Google LLC, or Alphabet Inc.</strong></li>
+                <li>The official YouTube website is <a href="https://www.youtube.com" target="_blank" rel="noopener" class="text-link">https://www.youtube.com</a>. YouTube is a registered trademark of Google LLC.</li>
+            </ul>
+
+            <h3>2. Educational Purpose</h3>
+            <p>All insights and tools provided on YouTube Algo are for informational and educational purposes only and do not guarantee specific channel performance results.</p>
+        </section>
+
+    </main>
+
+    <!-- Sign In Modal -->
+    <div id="signinModal" class="modal-overlay" onclick="outsideModalClose(event, 'signinModal')">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('signinModal')">✕</button>
+            <h2>Sign In</h2>
+            <p>Access your saved YouTube audits and tools.</p>
+            <form class="modal-form" onsubmit="event.preventDefault(); closeModal('signinModal'); showToast('Successfully signed in!');">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signupModal" class="modal-overlay" onclick="outsideModalClose(event, 'signupModal')">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('signupModal')">✕</button>
+            <h2>Create Account</h2>
+            <p>Join YouTube Algo for advanced creator tools.</p>
+            <form class="modal-form" onsubmit="event.preventDefault(); closeModal('signupModal'); showToast('Account created successfully!');">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Create password" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                &copy; 2026 YouTube Algo. All rights reserved.
+            </div>
+            <ul class="footer-nav">
+                <li><a onclick="showPage('tool')">Audit Tool</a></li>
+                <li><a onclick="showPage('about')">About Us</a></li>
+                <li><a onclick="showPage('contact')">Contact Us</a></li>
+                <li><a onclick="showPage('terms')">Terms & Disclaimer</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast">Action completed successfully!</div>
+
+    <!-- Script Logic -->
+    <script>
+        let generatedReportText = "";
+        let currentMode = 'url';
+
+        // Toggle Android Drawer
+        function toggleDrawer() {
+            const drawer = document.getElementById('navDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+
+        // Page Navigation Controller
+        function showPage(pageId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const targetSection = document.getElementById(pageId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            const drawerLinks = document.querySelectorAll('.drawer-links a');
+            drawerLinks.forEach(link => link.classList.remove('active'));
+
+            const activeLink = document.getElementById(`drawer-${pageId}`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Switch Input Mode (URL vs Written Problem)
+        function switchMode(mode) {
+            currentMode = mode;
+            document.getElementById('tabUrl').classList.remove('active');
+            document.getElementById('tabProblem').classList.remove('active');
+            document.getElementById('modeUrl').classList.remove('active');
+            document.getElementById('modeProblem').classList.remove('active');
+
+            if (mode === 'url') {
+                document.getElementById('tabUrl').classList.add('active');
+                document.getElementById('modeUrl').classList.add('active');
+            } else {
+                document.getElementById('tabProblem').classList.add('active');
+                document.getElementById('modeProblem').classList.add('active');
+            }
+        }
+
+        // Modal Controls
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('open');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('open');
+        }
+
+        function outsideModalClose(event, modalId) {
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+
+        // Dual Audit Solver Engine
+        function processAudit(mode) {
+            let problems = [];
+            let solutions = [];
+            let sourceInfo = "";
+
+            if (mode === 'url') {
+                const urlInput = document.getElementById('ytUrl').value.trim();
+                if (!urlInput) {
+                    alert('Please enter a valid YouTube URL!');
+                    return;
+                }
+                sourceInfo = `URL: ${urlInput}`;
+                problems = [
+                    "CTR Risk: Title lacks strong curiosity triggers or high-intent search keywords.",
+                    "Retention Drop: Intro hook causes viewers to leave within the first 30 seconds.",
+                    "Metadata Context: Description lacks sufficient topic terms for browse recommendations."
+                ];
+                solutions = [
+                    "Title Optimization: Keep titles under 60 characters and lead with strong curiosity terms.",
+                    "Thumbnail Redesign: Use clean typography (max 3 words) with stark color contrast.",
+                    "Re-Hook Intro: Cut unnecessary introductory fluff and deliver on the thumbnail promise right away."
+                ];
+            } else {
+                const problemText = document.getElementById('ytProblemText').value.trim();
+                if (!problemText) {
+                    alert('Please describe your problem!');
+                    return;
+                }
+                sourceInfo = `Problem description: "${problemText}"`;
+                problems = [
+                    "Algorithmic Distribution Stagnation: Low initial velocity signals restricted impressions.",
+                    "Audience Engagement Deficit: Viewers are not interacting or watching deep enough into the session."
+                ];
+                solutions = [
+                    "Hook Restructuring: Redesign your video's first 15 seconds to spike retention graphs.",
+                    "Thumbnail & Title A/B Testing: Test higher-contrast thumbnails to boost Click-Through Rate (CTR)."
+                ];
+            }
+
+            document.getElementById('resSource').innerText = sourceInfo;
+
+            const probBox = document.getElementById('problemsContainer');
+            probBox.innerHTML = '';
+            problems.forEach(p => {
+                probBox.innerHTML += `<div class="problem-item">⚠️ ${p}</div>`;
+            });
+
+            const solBox = document.getElementById('solutionsContainer');
+            solBox.innerHTML = '';
+            solutions.forEach(s => {
+                solBox.innerHTML += `<div class="solution-item">✅ ${s}</div>`;
+            });
+
+            generatedReportText = `YOUTUBE ALGO AUDIT & SOLUTION REPORT\n` +
+                `Source: ${sourceInfo}\n` +
+                `Date: ${new Date().toLocaleDateString()}\n\n` +
+                `DETECTED PROBLEMS:\n` + problems.map(p => `- ${p}`).join('\n') + `\n\n` +
+                `RECOMMENDED SOLUTIONS:\n` + solutions.map(s => `- ${s}`).join('\n');
+
+            document.getElementById('resultsBox').style.display = 'block';
+        }
+
+        // Copy & Download Functions
+        function copyReport() {
+            if (!generatedReportText) return;
+            navigator.clipboard.writeText(generatedReportText).then(() => {
+                showToast('Report copied to clipboard!');
+            });
+        }
+
+        function downloadReport() {
+            if (!generatedReportText) return;
+            const blob = new Blob([generatedReportText], { type: 'text/plain' });
+            const element = document.createElement('a');
+            element.href = URL.createObjectURL(blob);
+            element.download = `YouTube_Algo_Report_${Date.now()}.txt`;
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.className = 'show';
+            setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 2500);
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>YouTube Algo — Master the Algorithm with Sami Abera</title>
