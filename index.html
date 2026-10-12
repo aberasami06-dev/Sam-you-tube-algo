@@ -149,57 +149,6 @@
       padding: 2rem 1.2rem;
     }
 
-    /* Hero Section with Creator Photo */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
-      padding: 2.5rem 0;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 0, 51, 0.12);
-      border: 1px solid var(--accent-red);
-      color: var(--accent-red);
-      padding: 0.4rem 1.2rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-
-    .hero h1 .highlight-name {
-      background: linear-gradient(90deg, #fff, var(--accent-red));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .slogan {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--accent-red);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-
     .
 
     /* Interactive Video Masterclass Section */
@@ -916,43 +865,7 @@
     </div>
   </div>
 
-  <!-- PROFILE PAGE -->
-  <div id="page-profile" class="page">
-    <div class="container">
-      
-      <!-- Creator Photo Highlight #3 -->
-      <div class="profile-header">
-        <div class="profile-avatar-img">
-          <img src="1000007398_c0c85a.jpg" alt="Sami Abera Profile" />
-        </div>
-        <div>
-          <h2 style="font-size: 1.4rem;">Sami Abera</h2>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Lead Strategist & Creator @ YouTube Algo</p>
-        </div>
-      </div>
-
-      <div class="settings-panel">
-        <h3 style="margin-bottom: 1.2rem; font-size: 1.2rem;">Account Customization & Settings</h3>
-        <div class="form-group">
-          <label>Profile Display Name</label>
-          <input type="text" value="Sami Abera" />
-        </div>
-        <div class="form-group">
-          <label>Your YouTube Channel URL</label>
-          <input type="text" placeholder="https://youtube.com/@samiabera" />
-        </div>
-        <div class="form-group">
-          <label>AdSense Payment Method</label>
-          <select>
-            <option>EFT Direct Deposit</option>
-            <option>Wire Transfer</option>
-            <option>PayPal Account</option>
-          </select>
-        </div>
-        <button class="btn-submit" style="max-width: 220px;" onclick="alert('Profile updated successfully!')">Save Profile Settings</button>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- Android Bottom Navigation Bar -->
   <div class="mobile-bottom-bar">
@@ -962,8 +875,6 @@
     <button class="mobile-bar-btn" id="mbar-advertising" onclick="switchTab('advertising')">
       <i class="fa-solid fa-bullhorn"></i> Ads Strategy
     </button>
-    <button class="mobile-bar-btn" id="mbar-profile" onclick="switchTab('profile')">
-      <i class="fa-solid fa-user"></i> Profile
     </button>
     <button class="mobile-bar-btn" onclick="toggleFollow()">
       <i class="fa-solid fa-user-plus"></i> <span id="mbar-follow">Follow</span>
