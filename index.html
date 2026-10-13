@@ -903,70 +903,8 @@
                 closeModal(modalId);
             }
         }
+"Thumbnail & Title A/B Testing: Test higher-contrast thumbnails to boost Click-Through Rate (CTR)."
 
-        // Dual Audit Solver Engine
-        function processAudit(mode) {
-            let problems = [];
-            let solutions = [];
-            let sourceInfo = "";
-
-            if (mode === 'url') {
-                const urlInput = document.getElementById('ytUrl').value.trim();
-                if (!urlInput) {
-                    alert('Please enter a valid YouTube URL!');
-                    return;
-                }
-                sourceInfo = `URL: ${urlInput}`;
-                problems = [
-                    "CTR Risk: Title lacks strong curiosity triggers or high-intent search keywords.",
-                    "Retention Drop: Intro hook causes viewers to leave within the first 30 seconds.",
-                    "Metadata Context: Description lacks sufficient topic terms for browse recommendations."
-                ];
-                solutions = [
-                    "Title Optimization: Keep titles under 60 characters and lead with strong curiosity terms.",
-                    "Thumbnail Redesign: Use clean typography (max 3 words) with stark color contrast.",
-                    "Re-Hook Intro: Cut unnecessary introductory fluff and deliver on the thumbnail promise right away."
-                ];
-            } else {
-                const problemText = document.getElementById('ytProblemText').value.trim();
-                if (!problemText) {
-                    alert('Please describe your problem!');
-                    return;
-                }
-                sourceInfo = `Problem description: "${problemText}"`;
-                problems = [
-                    "Algorithmic Distribution Stagnation: Low initial velocity signals restricted impressions.",
-                    "Audience Engagement Deficit: Viewers are not interacting or watching deep enough into the session."
-                ];
-                solutions = [
-                    "Hook Restructuring: Redesign your video's first 15 seconds to spike retention graphs.",
-                    "Thumbnail & Title A/B Testing: Test higher-contrast thumbnails to boost Click-Through Rate (CTR)."
-                ];
-            }
-
-            document.getElementById('resSource').innerText = sourceInfo;
-
-            const probBox = document.getElementById('problemsContainer');
-            probBox.innerHTML = '';
-            problems.forEach(p => {
-                probBox.innerHTML += `<div class="problem-item">⚠️ ${p}</div>`;
-            });
-
-            const solBox = document.getElementById('solutionsContainer');
-            solBox.innerHTML = '';
-            solutions.forEach(s => {
-                solBox.innerHTML += `<div class="solution-item">✅ ${s}</div>`;
-            });
-
-            generatedReportText = `YOUTUBE ALGO AUDIT & SOLUTION REPORT\n` +
-                `Source: ${sourceInfo}\n` +
-                `Date: ${new Date().toLocaleDateString()}\n\n` +
-                `DETECTED PROBLEMS:\n` + problems.map(p => `- ${p}`).join('\n') + `\n\n` +
-                `RECOMMENDED SOLUTIONS:\n` + solutions.map(s => `- ${s}`).join('\n');
-
-            document.getElementById('resultsBox').style.display = 'block';
-
-    <a href="index.html">Home</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
