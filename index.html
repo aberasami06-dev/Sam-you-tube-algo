@@ -965,35 +965,7 @@
                 `RECOMMENDED SOLUTIONS:\n` + solutions.map(s => `- ${s}`).join('\n');
 
             document.getElementById('resultsBox').style.display = 'block';
-        }
 
-        // Copy & Download Functions
-        function copyReport() {
-            if (!generatedReportText) return;
-            navigator.clipboard.writeText(generatedReportText).then(() => {
-                showToast('Report copied to clipboard!');
-            });
-        }
-
-        function downloadReport() {
-            if (!generatedReportText) return;
-            const blob = new Blob([generatedReportText], { type: 'text/plain' });
-            const element = document.createElement('a');
-            element.href = URL.createObjectURL(blob);
-            element.download = `YouTube_Algo_Report_${Date.now()}.txt`;
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.innerText = message;
-            toast.className = 'show';
-            setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 2500);
-        }
-    </script>
-</body>
     <a href="index.html">Home</a>
 <!DOCTYPE html>
 <html lang="en">
