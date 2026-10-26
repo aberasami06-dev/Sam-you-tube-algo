@@ -736,8 +736,22 @@
                 case 'whatsapp':
                     shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
                     break;
+            
             }
             if (shareUrl) window.open(shareUrl, '_blank');
+           
+<!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500 space-y-4">
+            <div class="flex justify-center space-x-6">
+                <button onclick="switchPage('home')" class="hover:text-brand-600">Home</button>
+                <button onclick="switchPage('about')" class="hover:text-brand-600">About Us</button>
+                <button onclick="switchPage('contact')" class="hover:text-brand-600">Contact Us</button>
+                <button onclick="switchPage('privacy')" class="hover:text-brand-600">Privacy Policy</button>
+            </div>
+            <p>&copy; 2026 Job & Free Money. All rights reserved.</p>
+        </div>
+    </footer>
         }
     </script>
 </body>
