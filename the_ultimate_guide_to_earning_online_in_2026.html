@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job, Online Job & Free Money: The Ultimate Guide to Earning Online in 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                        accent: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .adsense-placeholder {
+            background-image: repeating-linear-gradient(45deg, rgba(241, 245, 249, 0.8), rgba(241, 245, 249, 0.8) 10px, rgba(226, 232, 240, 0.8) 10px, rgba(226, 232, 240, 0.8) 20px);
+        }
+        .dark .adsense-placeholder {
+            background-image: repeating-linear-gradient(45deg, rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8) 10px, rgba(15, 23, 42, 0.8) 10px, rgba(15, 23, 42, 0.8) 20px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300 antialiased">
+
+    <!-- Reading Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 dark:bg-slate-800 z-50">
+        <div id="readingProgress" class="h-full bg-blue-600 dark:bg-blue-500 w-0 transition-all duration-150"></div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b border-gray-200 dark:border-slate-800 z-40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+                        EarnHub 2026
+                    </span>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-6 font-medium text-sm text-gray-600 dark:text-gray-300">
+                    <a href="#intro" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Intro</a>
+                    <a href="#online-jobs" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Online Jobs</a>
+                    <a href="#free-money" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Free Money</a>
+                    <a href="#micro-tasks" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Micro-Tasks</a>
+                    <a href="#passive-income" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Passive Income</a>
+                    <a href="#calculator" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Calculator</a>
+                    <a href="#faq" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Actions: Search Trigger & Dark Mode Toggle & Mobile Menu -->
+                <div class="flex items-center space-x-3">
+                    <!-- Dark Mode Button -->
+                    <button id="themeToggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme">
+                        <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="#intro" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600">Intro</a>
+            <a href="#online-jobs" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600">High-Paying Online Jobs</a>
+            <a href="#free-money" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600">Free Money & Rewards</a>
+            <a href="#micro-tasks" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600">Micro-Tasks & Side Hustles</a>
+            <a href="#passive-income" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600">Passive Income Streams</a>
+            <a href="#security" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600">Security & Scam Prevention</a>
+            <a href="#calculator" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600">Income Calculator</a>
+            <a href="#faq" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600">FAQ</a>
+        </div>
+    </header>
+
+    <!-- TOP HEADER LEADERBOARD AD BANNER -->
+    <div class="max-w-7xl mx-auto px-4 mt-6">
+        <div class="adsense-placeholder border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-xl p-4 text-center">
+            <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest block mb-1">Advertisement</span>
+            <div class="h-20 flex items-center justify-center text-sm font-medium text-gray-500 dark:text-gray-400">
+                <i class="fa-solid fa-[#] mr-2"></i> Google AdSense Leaderboard Slot (728x90 / Responsive Top Header Ad)
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container Layout: Left Content (Main Post) + Right Sidebar -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- MAIN ARTICLE SECTION (8 COLS) -->
+            <article class="lg:col-span-8 bg-white dark:bg-slate-800/60 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 p-6 sm:p-10 transition-colors">
+
+                <!-- Article Header -->
+                <header class="mb-8 border-b border-gray-100 dark:border-slate-700/60 pb-6">
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-semibold rounded-full">Remote Work 2026</span>
+                        <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-xs font-semibold rounded-full">Financial Freedom</span>
+                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 text-xs font-semibold rounded-full">Side Hustles</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+                        Job, Online Job & Free Money: The Ultimate Guide to Earning Online in 2026
+                    </h1>
+
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Discover verified remote careers, quick payout micro-tasks, zero-investment cash rewards, and proven passive income systems tailored for the modern digital economy.
+                    </p>
+
+                    <!-- Author & Meta info -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-4 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-slate-800">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Author" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200">Alex Morgan, Senior Digital Analyst</p>
+                                <p class="text-xs">Updated: October 2026 • 15 min read</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Share Buttons -->
+                        <div class="flex items-center space-x-2">
+                            <button onclick="shareArticle('twitter')" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 text-gray-600 dark:text-gray-300 transition-colors flex items-center justify-center" title="Share on Twitter/X">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </button>
+                            <button onclick="shareArticle('facebook')" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 hover:bg-blue-700 hover:text-white dark:hover:bg-blue-700 text-gray-600 dark:text-gray-300 transition-colors flex items-center justify-center" title="Share on Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </button>
+                            <button onclick="shareArticle('linkedin')" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 text-gray-600 dark:text-gray-300 transition-colors flex items-center justify-center" title="Share on LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </button>
+                            <button onclick="shareArticle('telegram')" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 text-gray-600 dark:text-gray-300 transition-colors flex items-center justify-center" title="Share on Telegram">
+                                <i class="fa-brands fa-telegram"></i>
+                            </button>
+                            <button onclick="shareArticle('whatsapp')" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 text-gray-600 dark:text-gray-300 transition-colors flex items-center justify-center" title="Share on WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Search Topic Filter inside Article -->
+                <div class="mb-8 p-4 bg-gray-50 dark:bg-slate-900/60 rounded-xl border border-gray-200 dark:border-slate-700">
+                    <label for="searchFilter" class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Search Key Topics in Article</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-400"></i>
+                        <input type="text" id="searchFilter" placeholder="Type keywords (e.g., Freelancing, Surveys, Passive Income, Scam)..." class="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                    </div>
+                </div>
+
+                <!-- Interactive Table of Contents Box -->
+                <div class="mb-10 p-6 bg-blue-50/60 dark:bg-slate-800/90 rounded-xl border border-blue-100 dark:border-slate-700">
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center">
+                        <i class="fa-solid fa-list-ol text-blue-600 mr-2"></i> Table of Contents
+                    </h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-blue-700 dark:text-blue-400">
+                        <li><a href="#intro" class="hover:underline flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>1. Digital Landscape 2026</a></li>
+                        <li><a href="#online-jobs" class="hover:underline flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>2. High-Paying Online Jobs</a></li>
+                        <li><a href="#free-money" class="hover:underline flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>3. Free Money & Signup Bonuses</a></li>
+                        <li><a href="#micro-tasks" class="hover:underline flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>4. Micro-Tasks & Quick Payouts</a></li>
+                        <li><a href="#passive-income" class="hover:underline flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>5. Passive Income Creation</a></li>
+                        <li><a href="#security" class="hover:underline flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>6. Safety & Scam Prevention</a></li>
+                        <li><a href="#calculator" class="hover:underline flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>7. Earnings Calculator</a></li>
+                        <li><a href="#faq" class="hover:underline flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>8. Frequently Asked Questions</a></li>
+                    </ul>
+                </div>
+
+                <!-- SECTION 1: INTRO -->
+                <section id="intro" class="filterable-section mb-10">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">1. Introduction: The Global Shift to Digital Monetization</h2>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                        The global workforce landscape in 2026 has undergone a fundamental transformation. Remote employment, asynchronous task execution, and decentralized micro-earnings have morphed from niche alternatives into mainstream financial strategies. Whether your goal is replacing a full-time office salary, finding flexible weekend work, or capturing free promotional money and bonuses, internet connectivity offers unprecedented access to capital.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        However, navigating the online earning ecosystem requires distinguishing high-leverage skill opportunities from low-yield tasks and outright fraudulent scams. This definitive guide breaks down every practical avenue into clear categories with realistic earning expectations and step-by-step strategies.
+                    </p>
+
+                    <!-- Image Showcase Card 1 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-slate-700 mb-6">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Remote Team Working" class="w-full h-72 object-cover">
+                        <div class="p-4 bg-gray-50 dark:bg-slate-800 text-xs text-gray-500 dark:text-gray-400">
+                            <i class="fa-solid fa-camera mr-1"></i> Flexible remote workflows empower workers worldwide to monetize specialized skills without geographical boundaries.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ADSENSE SLOT: UNDER INTRO RESPONSIVE AD -->
+                <div class="my-8 adsense-placeholder border border-dashed border-gray-300 dark:border-slate-700 rounded-xl p-4 text-center">
+                    <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest block mb-1">Advertisement</span>
+                    <div class="h-24 flex items-center justify-center text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <i class="fa-solid fa-[#] mr-2"></i> Google AdSense In-Article Ad Unit #1 (Responsive)
+                    </div>
+                </div>
+
+                <!-- SECTION 2: HIGH PAYING ONLINE JOBS -->
+                <section id="online-jobs" class="filterable-section mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center text-base mr-3 shadow-md">1</span>
+                        Category 1: High-Paying Online Jobs & Remote Careers
+                    </h2>
+
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        High-paying online jobs require specialized skills, discipline, and effective self-marketing, but they offer the highest earnings ceiling—often exceeding traditional local corporate salaries.
+                    </p>
+
+                    <!-- Subcategory Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <!-- Job 1 -->
+                        <div class="p-6 bg-gray-50 dark:bg-slate-900/40 rounded-xl border border-gray-200 dark:border-slate-700 hover:border-blue-500 transition-colors">
+                            <div class="text-blue-600 dark:text-blue-400 text-2xl mb-3"><i class="fa-solid fa-pen-nib"></i></div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Freelance Content & Copywriting</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Businesses need blog articles, technical whitepapers, and sales letters. AI has elevated the value of nuanced human editors and strategic copywriters.</p>
+                            <span class="inline-block text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded">Earning Potential: $25 - $90/hr</span>
+                        </div>
+                        <!-- Job 2 -->
+                        <div class="p-6 bg-gray-50 dark:bg-slate-900/40 rounded-xl border border-gray-200 dark:border-slate-700 hover:border-blue-500 transition-colors">
+                            <div class="text-blue-600 dark:text-blue-400 text-2xl mb-3"><i class="fa-solid fa-code"></i></div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Full-Stack & Web Development</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Building React applications, custom Shopify stores, and API integrations remains one of the most lucrative remote career paths globally.</p>
+                            <span class="inline-block text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded">Earning Potential: $40 - $150/hr</span>
+                        </div>
+                        <!-- Job 3 -->
+                        <div class="p-6 bg-gray-50 dark:bg-slate-900/40 rounded-xl border border-gray-200 dark:border-slate-700 hover:border-blue-500 transition-colors">
+                            <div class="text-blue-600 dark:text-blue-400 text-2xl mb-3"><i class="fa-solid fa-headset"></i></div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Virtual Assistance & Executive Support</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Managing calendars, client correspondence, travel arrangements, and project coordination for busy entrepreneurs and tech executives.</p>
+                            <span class="inline-block text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded">Earning Potential: $18 - $45/hr</span>
+                        </div>
+                        <!-- Job 4 -->
+                        <div class="p-6 bg-gray-50 dark:bg-slate-900/40 rounded-xl border border-gray-200 dark:border-slate-700 hover:border-blue-500 transition-colors">
+                            <div class="text-blue-600 dark:text-blue-400 text-2xl mb-3"><i class="fa-solid fa-chart-line"></i></div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">SEO & Digital Marketing Consulting</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Helping e-commerce brands and local businesses rank higher on Google search results and execute profitable ad campaigns.</p>
+                            <span class="inline-block text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded">Earning Potential: $35 - $110/hr</span>
+                        </div>
+                    </div>
+
+                    <!-- Image Showcase Card 2 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-slate-700 mb-4">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Software Coding Setup" class="w-full h-72 object-cover">
+                        <div class="p-4 bg-gray-50 dark:bg-slate-800 text-xs text-gray-500 dark:text-gray-400">
+                            <i class="fa-solid fa-laptop-code mr-1"></i> Top remote platforms to find full-time or contract employment include Upwork, Fiverr Pro, Toptal, and RemoteOK.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ADSENSE SLOT: MID-ARTICLE AD 1 -->
+                <div class="my-8 adsense-placeholder border border-dashed border-gray-300 dark:border-slate-700 rounded-xl p-4 text-center">
+                    <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest block mb-1">Advertisement</span>
+                    <div class="h-28 flex items-center justify-center text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <i class="fa-solid fa-[#] mr-2"></i> Google AdSense Mid-Article In-Content Ad #1
+                    </div>
+                </div>
+
+                <!-- SECTION 3: FREE MONEY & REWARDS -->
+                <section id="free-money" class="filterable-section mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-base mr-3 shadow-md">2</span>
+                        Category 2: Free Money, Rewards & Signup Bonuses
+                    </h2>
+
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        "Free money" in the digital sphere refers to promotional cash incentives, bank referral bonuses, cashback rewards, and paid market research platforms that require zero upfront capital to claim.
+                    </p>
+
+                    <!-- Features list with badges -->
+                    <div class="space-y-4 mb-8">
+                        <div class="p-5 bg-white dark:bg-slate-900/80 rounded-xl border border-gray-200 dark:border-slate-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white flex items-center">
+                                    <i class="fa-solid fa-square-poll-vertical text-emerald-500 mr-2"></i> Verified Survey & Market Research Sites
+                                </h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Platforms like Swagbucks, Survey Junkie, and PrizeRebel reward users for evaluating products, watching videos, and answering opinion panels.</p>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold rounded-lg whitespace-nowrap">$50 - $200 / mo</span>
+                        </div>
+
+                        <div class="p-5 bg-white dark:bg-slate-900/80 rounded-xl border border-gray-200 dark:border-slate-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white flex items-center">
+                                    <i class="fa-solid fa-cart-shopping text-emerald-500 mr-2"></i> High-Rate Cashback Apps
+                                </h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Services like Rakuten, TopCashback, and Honey give you automatic percentages back on everyday groceries, electronics, and flight bookings.</p>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold rounded-lg whitespace-nowrap">5% - 15% Rebates</span>
+                        </div>
+
+                        <div class="p-5 bg-white dark:bg-slate-900/80 rounded-xl border border-gray-200 dark:border-slate-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white flex items-center">
+                                    <i class="fa-solid fa-gift text-emerald-500 mr-2"></i> Financial & Exchange Referral Programs
+                                </h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Digital banks and investment apps frequently pay welcome bonuses ranging from $10 to $200 for opening verified accounts and making initial deposits.</p>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold rounded-lg whitespace-nowrap">$10 - $200 / Referral</span>
+                        </div>
+                    </div>
+
+                    <!-- Image Showcase Card 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-slate-700 mb-4">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80" alt="Digital Banking and Cash Rewards" class="w-full h-72 object-cover">
+                        <div class="p-4 bg-gray-50 dark:bg-slate-800 text-xs text-gray-500 dark:text-gray-400">
+                            <i class="fa-solid fa-wallet mr-1"></i> Cash payouts from legitimate reward apps are typically issued directly via PayPal, gift cards, or direct bank transfers.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 4: MICRO TASKS & SIDE HUSTLES -->
+                <section id="micro-tasks" class="filterable-section mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-9 h-9 rounded-lg bg-amber-500 text-white flex items-center justify-center text-base mr-3 shadow-md">3</span>
+                        Category 3: Micro-Tasks & Quick Payout Side Hustles
+                    </h2>
+
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Micro-tasks are small unit tasks that require no specialized background experience. They are ideal for beginners looking to earn cash immediately in their spare time.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="p-5 bg-gray-50 dark:bg-slate-900/40 rounded-xl border border-gray-200 dark:border-slate-700">
+                            <h3 class="font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+                                <i class="fa-solid fa-robot text-amber-500 mr-2"></i> AI Data Annotation & Labeling
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Companies train machine learning models by employing workers to label images, rate chatbot response quality, and categorize text audio clips (e.g., Remotasks, Clickworker, DataAnnotation.tech).</p>
+                        </div>
+
+                        <div class="p-5 bg-gray-50 dark:bg-slate-900/40 rounded-xl border border-gray-200 dark:border-slate-700">
+                            <h3 class="font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+                                <i class="fa-solid fa-vial text-amber-500 mr-2"></i> Website & App Usability Testing
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Test new websites while speaking your thoughts aloud. Platforms like UserTesting and TryMyUI pay around $10 for every 20-minute screen-recorded feedback session.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ADSENSE SLOT: MID-ARTICLE AD 2 -->
+                <div class="my-8 adsense-placeholder border border-dashed border-gray-300 dark:border-slate-700 rounded-xl p-4 text-center">
+                    <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest block mb-1">Advertisement</span>
+                    <div class="h-28 flex items-center justify-center text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <i class="fa-solid fa-[#] mr-2"></i> Google AdSense Mid-Article In-Content Ad #2
+                    </div>
+                </div>
+
+                <!-- SECTION 5: PASSIVE INCOME STREAMS -->
+                <section id="passive-income" class="filterable-section mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-9 h-9 rounded-lg bg-purple-600 text-white flex items-center justify-center text-base mr-3 shadow-md">4</span>
+                        Category 4: Building Long-Term Passive Income Streams
+                    </h2>
+
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Passive income requires significant upfront effort or strategy, but once established, it continues generating revenue with minimal ongoing maintenance.
+                    </p>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="p-6 bg-gradient-to-br from-purple-50 to-white dark:from-slate-900 dark:to-slate-800 rounded-2xl border border-purple-100 dark:border-slate-700">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">1. Content Blogging with Google AdSense</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                                Publishing high-quality niche articles (finance, tech, lifestyle) attracts organic traffic from search engines. Monetize through Google AdSense banner placements, native sponsor units, and affiliate product embeds.
+                            </p>
+                            <div class="text-xs font-semibold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950/60 inline-block px-3 py-1 rounded-full">Key Metric: $5 - $35 RPM (Revenue Per Mille)</div>
+                        </div>
+
+                        <div class="p-6 bg-gradient-to-br from-purple-50 to-white dark:from-slate-900 dark:to-slate-800 rounded-2xl border border-purple-100 dark:border-slate-700">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2. Digital Product Sales & Notion Templates</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                                Create e-books, printable planners, or productivity workflow templates once, and sell them infinitely on marketplaces like Gumroad or Etsy without inventory overhead.
+                            </p>
+                            <div class="text-xs font-semibold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950/60 inline-block px-3 py-1 rounded-full">Margin: 90%+ Profit Margins</div>
+                        </div>
+                    </div>
+
+                    <!-- Image Showcase Card 4 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-slate-700 mb-4">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics and Revenue Reports" class="w-full h-72 object-cover">
+                        <div class="p-4 bg-gray-50 dark:bg-slate-800 text-xs text-gray-500 dark:text-gray-400">
+                            <i class="fa-solid fa-chart-line mr-1"></i> Consistent content creation combined with search engine optimization (SEO) powers long-term ad earnings.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 6: SECURITY & SCAM PREVENTION -->
+                <section id="security" class="filterable-section mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center text-rose-600 dark:text-rose-400">
+                        <i class="fa-solid fa-shield-halved mr-3"></i> 5 Critical Rules to Avoid Online Work Scams
+                    </h2>
+                    
+                    <div class="p-6 bg-rose-50 dark:bg-rose-950/30 rounded-2xl border border-rose-200 dark:border-rose-900/50">
+                        <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-200">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Never pay upfront fees for equipment or training:</strong> Legitimate employers cover tooling costs and will never request gift cards or crypto deposits for registration.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Beware unrealistic payouts:</strong> Offers promising "$500 a day for 30 minutes of typing" are almost universally fraudulent phishing schemes.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Verify official communication channels:</strong> Check email domains carefully. Official recruiters will not communicate solely through Telegram or WhatsApp.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Avoid check cashing requests:</strong> Never deposit checks from unknown employers with instructions to wire money back.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- ADSENSE SLOT: IN-ARTICLE AD 3 -->
+                <div class="my-8 adsense-placeholder border border-dashed border-gray-300 dark:border-slate-700 rounded-xl p-4 text-center">
+                    <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest block mb-1">Advertisement</span>
+                    <div class="h-28 flex items-center justify-center text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <i class="fa-solid fa-[#] mr-2"></i> Google AdSense In-Article Ad Unit #3
+                    </div>
+                </div>
+
+                <!-- SECTION 7: INTERACTIVE EARNING CALCULATOR WIDGET -->
+                <section id="calculator" class="filterable-section mb-12">
+                    <div class="p-6 sm:p-8 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl text-white shadow-xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold flex items-center">
+                                <i class="fa-solid fa-calculator mr-3"></i> Estimated Monthly Income Calculator
+                            </h3>
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs font-medium">Interactive Tool</span>
+                        </div>
+                        <p class="text-blue-100 text-sm mb-6">Estimate your potential side income by adjusting your weekly time commitment and preferred activity category.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/10 p-6 rounded-xl backdrop-blur-md mb-6">
+                            <div>
+                                <label for="categorySelect" class="block text-xs font-semibold uppercase tracking-wider mb-2">Earning Category</label>
+                                <select id="categorySelect" onchange="calculateEarnings()" class="w-full p-3 rounded-lg bg-white dark:bg-slate-800 text-gray-800 dark:text-white border-0 font-medium focus:ring-2 focus:ring-emerald-400">
+                                    <option value="12">Micro-Tasks & Surveys ($12/hr avg)</option>
+                                    <option value="25">Virtual Assistant / Writing ($25/hr avg)</option>
+                                    <option value="45" selected>Web Dev & Graphic Design ($45/hr avg)</option>
+                                    <option value="75">SEO & Consulting ($75/hr avg)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label for="hoursRange" class="text-xs font-semibold uppercase tracking-wider">Hours Worked / Week</label>
+                                    <span id="hoursVal" class="font-bold text-emerald-300">15 hrs/wk</span>
+                                </div>
+                                <input type="range" id="hoursRange" min="2" max="40" value="15" oninput="calculateEarnings()" class="w-full accent-emerald-400 cursor-pointer">
+                            </div>
+                        </div>
+
+                        <!-- Result Display -->
+                        <div class="p-4 bg-white/20 rounded-xl flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-2">
+                            <div>
+                                <span class="text-xs uppercase text-blue-200 block">Projected Monthly Earnings</span>
+                                <span id="monthlyResult" class="text-3xl font-black text-emerald-300">$2,700 / mo</span>
+                            </div>
+                            <span class="text-xs text-blue-100 italic">Based on 4.5 weeks per month projection</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 8: FAQ ACCORDION -->
+                <section id="faq" class="filterable-section mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <i class="fa-solid fa-circle-question text-blue-600 mr-3"></i> Frequently Asked Questions
+                    </h2>
+
+                    <div class="space-y-4" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="border border-gray-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-slate-900/50">
+                            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-gray-800 dark:text-gray-100 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-slate-800/80 transition-colors">
+                                <span>Can beginners with zero skills really earn money online?</span>
+                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="hidden p-5 text-sm text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-slate-800 bg-gray-50/50 dark:bg-slate-900/30">
+                                Yes. Micro-tasks, basic online surveys, and usability testing require no technical experience. However, investing time to learn digital skills like data entry, copy editing, or graphic design will significantly increase your hourly rate.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="border border-gray-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-slate-900/50">
+                            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-gray-800 dark:text-gray-100 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-slate-800/80 transition-colors">
+                                <span>How do I receive payments from international remote platforms?</span>
+                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="hidden p-5 text-sm text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-slate-800 bg-gray-50/50 dark:bg-slate-900/30">
+                                Most global platforms issue payouts through PayPal, Payoneer, Wise, direct ACH bank transfers, or cryptocurrency wallets. Creating verified accounts on Payoneer or Wise is recommended for low currency conversion fees.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="border border-gray-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-slate-900/50">
+                            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-gray-800 dark:text-gray-100 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-slate-800/80 transition-colors">
+                                <span>Is passive income from Google AdSense still profitable?</span>
+                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="hidden p-5 text-sm text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-slate-800 bg-gray-50/50 dark:bg-slate-900/30">
+                                Absolutely. Sites with well-targeted niche content, strong search traffic, and strategic ad placements continue to generate reliable ad revenue streams month after month.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BOTTOM BANNER AD BEFORE FOOTER -->
+                <div class="my-8 adsense-placeholder border border-dashed border-gray-300 dark:border-slate-700 rounded-xl p-4 text-center">
+                    <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest block mb-1">Advertisement</span>
+                    <div class="h-24 flex items-center justify-center text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <i class="fa-solid fa-[#] mr-2"></i> Google AdSense Matched Content / Bottom Banner Ad Unit
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- SIDEBAR WIDGETS (4 COLS) -->
+            <aside class="lg:col-span-4 space-y-6">
+
+                <!-- Sidebar Newsletter Signup Widget -->
+                <div class="p-6 bg-white dark:bg-slate-800/80 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Weekly Income Digest</h3>
+                    <p class="text-xs text-gray-600 dark:text-gray-300 mb-4">Get vetted remote job alerts, referral bonuses, and passive income strategies delivered straight to your inbox.</p>
+                    
+                    <form onsubmit="handleSubscribe(event)" class="space-y-3">
+                        <input type="email" required placeholder="Enter your email..." class="w-full px-4 py-2 bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button type="submit" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg shadow-md transition-colors">
+                            Subscribe Free
+                        </button>
+                    </form>
+                    <div id="subSuccessMsg" class="hidden mt-3 p-2 text-xs bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 rounded text-center font-medium">
+                        ✓ Subscribed successfully!
+                    </div>
+                </div>
+
+                <!-- SIDEBAR STICKY ADSENSE AD -->
+                <div class="sticky top-20 space-y-6">
+                    <div class="adsense-placeholder border border-dashed border-gray-300 dark:border-slate-700 rounded-2xl p-4 text-center">
+                        <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest block mb-1">Advertisement</span>
+                        <div class="h-90 min-h-[300px] flex items-center justify-center text-sm font-medium text-gray-500 dark:text-gray-400">
+                            <i class="fa-solid fa-[#] mr-2"></i> Google AdSense Sidebar Half-Page Ad (300x600)
+                        </div>
+                    </div>
+
+                    <!-- Trending Quick Links Card -->
+                    <div class="p-6 bg-white dark:bg-slate-800/80 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800">
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-4 uppercase tracking-wider">Top Recommended Platforms</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li>
+                                <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                    <span>Upwork Freelance</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
+                                </a>
+                            </li>
+                            <li class="border-t border-gray-100 dark:border-slate-700/60 pt-2">
+                                <a href="https://www.swagbucks.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                    <span>Swagbucks Rewards</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
+                                </a>
+                            </li>
+                            <li class="border-t border-gray-100 dark:border-slate-700/60 pt-2">
+                                <a href="https://www.usertesting.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                    <span>UserTesting Feedback</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
+                                </a>
+                            </li>
+                            <li class="border-t border-gray-100 dark:border-slate-700/60 pt-2">
+                                <a href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                    <span>Fiverr Marketplace</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 py-12 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Footer Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center text-white font-bold text-sm">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <span class="font-bold text-gray-900 dark:text-white">EarnHub Guide 2026</span>
+                </div>
+
+                <!-- Footer Nav Links -->
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-500 dark:text-gray-400">
+                    <a href="#intro" class="hover:text-blue-600">Privacy Policy</a>
+                    <a href="#intro" class="hover:text-blue-600">Terms of Service</a>
+                    <a href="#intro" class="hover:text-blue-600">AdSense Disclosure</a>
+                    <a href="#intro" class="hover:text-blue-600">Contact Us</a>
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-xs text-gray-400 dark:text-gray-500 text-center">
+                    &copy; 2026 EarnHub. All rights reserved. For informational purposes only.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // Reading Progress Bar Handler
+        window.addEventListener('scroll', () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / totalHeight) * 100;
+            document.getElementById('readingProgress').style.width = `${progress}%`;
+        });
+
+        // Theme Toggle Logic (Dark / Light Mode)
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                themeIcon.className = 'fa-solid fa-moon text-lg';
+            } else {
+                document.documentElement.classList.add('dark');
+                themeIcon.className = 'fa-solid fa-sun text-lg text-amber-400';
+            }
+        });
+
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Search Filter Logic across Article Sections
+        const searchInput = document.getElementById('searchFilter');
+        const sections = document.querySelectorAll('.filterable-section');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            sections.forEach(sec => {
+                const text = sec.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        });
+
+        // FAQ Accordion Toggle
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.fa-chevron-down');
+            
+            content.classList.toggle('hidden');
+            if (content.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Online Income Calculator Logic
+        function calculateEarnings() {
+            const hourlyRate = parseFloat(document.getElementById('categorySelect').value);
+            const hoursPerWeek = parseFloat(document.getElementById('hoursRange').value);
+            
+            document.getElementById('hoursVal').innerText = `${hoursPerWeek} hrs/wk`;
+            
+            // 4.5 weeks per month average
+            const monthlyTotal = Math.round(hourlyRate * hoursPerWeek * 4.5);
+            document.getElementById('monthlyResult').innerText = `$${monthlyTotal.toLocaleString()} / mo`;
+        }
+
+        // Newsletter Subscription Handler
+        function handleSubscribe(e) {
+            e.preventDefault();
+            const msg = document.getElementById('subSuccessMsg');
+            msg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 4000);
+        }
+
+        // Social Share Trigger
+        function shareArticle(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent("Job, Online Job & Free Money: The Ultimate Guide 2026");
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
+                    break;
+                case 'whatsapp':
+                    shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+                    break;
+            }
+            if (shareUrl) window.open(shareUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
